@@ -2,6 +2,8 @@
 ## Modules
 
 1. Face Recognition for SignIn/SignUp
+2. Disease Recognition
 
 ## Note
 - shape_predictor_68_face_landmarks.dat is missing download from Google and place it in utils folder.
+- place the disease dataset in utils folder
