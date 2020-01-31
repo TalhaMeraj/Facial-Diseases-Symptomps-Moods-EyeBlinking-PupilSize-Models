@@ -5,7 +5,8 @@
 2. Disease Recognition
 3. Eye Detection
 4. Blinking and Pupil Size
+5. Moods Detection
 
 ## Note
 - shape_predictor_68_face_landmarks.dat is missing download from Google and place it in utils folder.
-- place the disease dataset in utils folder
+- place the disease and moods dataset in utils folder
