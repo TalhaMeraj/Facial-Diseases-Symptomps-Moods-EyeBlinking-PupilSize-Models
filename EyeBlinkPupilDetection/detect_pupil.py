@@ -2,6 +2,23 @@ import numpy as np
 import cv2
 import time
 
+from fractions import Fraction 
+def get_ratio(pr, ir):
+  # Radius in millimeters
+  iris_mm = 6.5
+
+  ratio = Fraction(pr, ir)
+  pupil_px = ratio.numerator
+  iris_px = ratio.denominator
+
+  # Using the ratio of millimeters : pixels for the iris,
+  # we can use this factor to find the size in mm of the pupil
+  # since we know its size in pixels
+  px_to_mm_factor = iris_mm / iris_px
+  pupil_mm = pr * px_to_mm_factor
+
+  return pupil_px, iris_px, pupil_mm, iris_mm
+
 cap = cv2.VideoCapture(0) 	#640,480
 w = 640
 h = 480
@@ -49,6 +66,7 @@ while(cap.isOpened()):
                     center = cv2.moments(cnt)
                     try:
                         cx,cy = int(center['m10']/center['m00']), int(center['m01']/center['m00'])
+                        
                     except:
                         continue
                     distanceX.append(cx)	
